@@ -6,12 +6,12 @@ services:
     runtime: docker
     region: Frankfurt
     branch: main
-    repo: https://github.com/Mrrashmika/QUEEN_ANJU_MD
+    repo: https://github.com/treasur08/queenmd
     dockerfilePath: ./Dockerfile
     autoDeploy: true
     healthCheckPath: /
     envVars:
       - key: SESSION_ID
-        value: "YOUR_SESSION_ID"
+        sync: false
       - key: NODE_VERSION
         value: "20.x"
