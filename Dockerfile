@@ -23,5 +23,5 @@ COPY . .
 # Expose the port
 EXPOSE 8000
 
-# Start the bot - make sure this points to your actual entry point file
-CMD ["node", "queen.js"]
+# Start the bot using the wrapper script
+CMD ["node", "start.js"]
