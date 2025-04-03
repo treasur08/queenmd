@@ -4,15 +4,13 @@ services:
     name: queen-anju-md
     runtime: docker
     region: Frankfurt
-    branch: V-3.00
+    branch: main
     repo: https://github.com/Mrrashmika/QUEEN_ANJU_MD
-    #buildCommand: |
-    #  apt-get update && \
-    #  apt-get install -y ffmpeg && \
-    #  npm install
+    dockerfilePath: ./Dockerfile
     autoDeploy: true
     healthCheckPath: /
-    #startCommand: npm start
     envVars:
       - key: SESSION_ID
         value: "YOUR_SESSION_ID"
+      - key: NODE_VERSION
+        value: "20.x"

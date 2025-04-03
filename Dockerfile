@@ -1,14 +1,18 @@
-FROM node:lts-buster
+FROM node:20-buster
 
 RUN apt-get update && \
-  apt-get install -y \
-  ffmpeg \
-  imagemagick \
-  webp && \
-  apt-get upgrade -y && \
-  rm -rf /var/lib/apt/lists/*
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    ffmpeg \
+    imagemagick \
+    libwebp-dev \
+    webp && \
+    apt-get upgrade -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-COPY package.json .
+WORKDIR /app
+
+COPY package*.json ./
 
 RUN npm install
 
@@ -17,5 +21,3 @@ COPY . .
 EXPOSE 8000
 
 CMD ["node", "main.js"]
-
-
